@@ -1,0 +1,428 @@
+/* Color Palette Variables (Define our theme colors) */
+:root {
+    --dark-blue: #0A192F; /* Deepest blue for background */
+    --medium-blue: #1F3864; /* Slightly lighter blue for cards/elements */
+    --accent-blue: #64FFDA; /* Vibrant light blue/turquoise for highlights */
+    --white-text: #FFFFFF; /* Pure white for headings and main text */
+    --light-grey-text: #E0E0E0; /* Off-white for general paragraphs */
+    --muted-grey-blue: #8892B0; /* Muted tone for taglines, footer text */
+}
+
+/* General Body & Typography - Overriding Bootstrap defaults */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--light-grey-text); /* General text color */
+    background-color: var(--dark-blue); /* Main background */
+    overflow-x: hidden;
+}
+
+/* Ensure all paragraph tags and lead text are themed correctly */
+p, .lead {
+    color: var(--light-grey-text);
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white-text);
+    font-weight: 700;
+}
+
+.section-heading {
+    font-size: 3.2rem;
+    padding-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--white-text);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-blue);
+    border-radius: 2px;
+}
+
+/* --- Header & Navbar - Overriding Bootstrap Navbar --- */
+header {
+    background-color: var(--dark-blue); /* Apply custom dark blue */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    border-bottom: 1px solid var(--medium-blue);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--white-text); /* Ensure brand text is white */
+    font-weight: 700;
+    font-size: 1.7rem;
+    flex-wrap: wrap;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--accent-blue);
+}
+
+.navbar-brand .logo-icon {
+    border-radius: 50%;
+    border: 2px solid var(--accent-blue);
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .logo-icon {
+    transform: rotate(10deg);
+}
+
+.navbar-brand .brand-name {
+    margin-right: 8px;
+    color: inherit;
+}
+
+.navbar-brand .tagline {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--muted-grey-blue);
+    width: 100%;
+    margin-top: -5px;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+    color: var(--white-text) !important; /* Override Bootstrap's default nav-link color */
+    font-weight: 500;
+    margin-left: 35px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-blue);
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent-blue) !important; /* Text color change on hover */
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Navbar toggler for mobile */
+.navbar-toggler {
+    border-color: var(--accent-blue) !important; /* Accent color border */
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    transform: rotate(90deg);
+    background-color: rgba(100, 255, 218, 0.1); /* Subtle background on hover */
+}
+
+.navbar-toggler-icon {
+    /* Bootstrap's navbar-dark utility changes this to white. We can re-override if needed. */
+    /* If you want accent colored lines, you'd re-add this background-image property */
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28100, 255, 218, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important; */
+}
+
+/* Mobile Navbar background */
+.navbar-collapse {
+    background-color: var(--dark-blue); /* Consistent background for collapsed menu */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(10,25,47,0.8), rgba(10,25,47,0.8)), url('https://via.placeholder.com/1920x1080/05101E/E0E0E0?text=Luxury+Resin+Art') no-repeat center center / cover;
+    background-position: center; /* Ensure background image is centered */
+    background-size: cover; /* Ensure background image covers the section */
+    color: var(--white-text);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    padding-top: 56px; /* Offset for fixed header */
+}
+
+.hero-content h1 {
+    font-size: 4.8rem;
+    margin-bottom: 25px;
+    color: var(--white-text);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-content .lead {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--light-grey-text);
+    font-weight: 300;
+}
+
+/* Buttons - Overriding Bootstrap Button Defaults */
+.btn-primary {
+    background-color: var(--accent-blue);
+    color: var(--dark-blue); /* Dark text on accent button */
+    border: 2px solid var(--accent-blue);
+    font-weight: 700;
+    padding: 0.9rem 2.2rem; /* Using btn-lg equivalent padding */
+    border-radius: 30px; /* Pill-shaped */
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(100, 255, 218, 0.5);
+}
+
+.btn-secondary {
+    background-color: var(--medium-blue);
+    color: var(--white-text);
+    border: 2px solid var(--medium-blue);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem; /* Using btn-lg equivalent padding for secondary */
+    border-radius: 5px; /* Standard rounded rectangle */
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark-blue);
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+/* Hero Text Animations (no change) */
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- Product Cards with Carousel --- */
+.product-card {
+    background-color: var(--medium-blue);
+    border: 1px solid var(--accent-blue); /* Accent border on cards */
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-color: var(--white-text); /* White border on hover for contrast */
+}
+
+.product-media-carousel {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel Controls (Arrows) - Targeting Bootstrap's classes */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 18%; /* Larger click area */
+    opacity: 0.8;
+    background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0)); /* Fading background */
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-next {
+    background: linear-gradient(to left, rgba(0,0,0,0.3), rgba(0,0,0,0)); /* Fading background */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: none; /* Reset filter from previous versions if it exists */
+    width: 2.2rem;
+    height: 2.2rem;
+    /* Bootstrap's default carousel icons are white, which works with our theme */
+    /* If you wanted accent color, you'd use a data:image svg here with --accent-blue color */
+}
+
+
+.product-name {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: var(--white-text);
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-blue); /* Accent color for price */
+    margin-bottom: 20px;
+}
+
+
+/* --- General Section Styling --- */
+section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    min-height: 60vh;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- About Us Section Specifics --- */
+#about-us .lead, #about-us p {
+    font-size: 1.15rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#about-us img {
+    border: 2px solid var(--medium-blue);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+/* --- Contact & Connect Us --- */
+.contact-info, .social-links p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--light-grey-text);
+}
+
+.contact-info strong {
+    color: var(--white-text);
+}
+
+.contact-info a {
+    color: var(--accent-blue) !important; /* Override Bootstrap link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--white-text) !important;
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links .social-icon {
+    font-size: 3.5rem;
+    color: var(--accent-blue);
+    margin: 0 25px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links .social-icon:hover {
+    color: var(--white-text);
+    transform: scale(1.25);
+}
+
+/* --- Footer - Overriding Bootstrap bg-dark --- */
+footer {
+    background-color: var(--dark-blue) !important; /* Force override Bootstrap's bg-dark */
+    color: var(--muted-grey-blue) !important; /* Force override Bootstrap's text-white */
+    font-size: 0.95rem;
+    margin-top: 50px;
+    border-top: 1px solid var(--medium-blue);
+    padding: 30px 0;
+}
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (min-width: 992px) { /* Large devices (desktops) */
+    /* .row-cols-lg-3 is handled by Bootstrap now */
+}
+
+@media (max-width: 991.98px) { /* Medium devices (tablets) */
+    /* .row-cols-md-2 & .row-cols-md-3 are handled by Bootstrap now */
+    .hero-content h1 { font-size: 3.8rem; }
+    .hero-content .lead { font-size: 1.6rem; }
+    .section-heading { font-size: 2.8rem; padding-bottom: 20px;}
+    .section-heading::after { width: 80px; }
+    .navbar-nav .nav-item {
+        margin-left: 0; /* Reset margin for stacked nav items */
+    }
+}
+
+@media (max-width: 767.98px) { /* Small devices (phones) */
+    /* Bootstrap's column system will handle stacking by default here if no specific col-sm- etc are used */
+    .hero-content h1 { font-size: 3rem; letter-spacing: 1.5px;}
+    .hero-content .lead { font-size: 1.2rem; }
+    .section-heading { font-size: 2.2rem; padding-bottom: 15px;}
+    .section-heading::after { width: 70px; height: 3px; }
+    .product-card { padding: 20px; }
+    .product-name { font-size: 1.3rem; }
+    .product-price { font-size: 1.2rem; }
+    .social-links .social-icon { font-size: 3rem; margin: 0 15px; }
+    .navbar-brand { font-size: 1.5rem; }
+    .navbar-brand .tagline { font-size: 0.8rem; }
+    .hero-section .btn-primary { padding: 12px 30px; font-size: 1.1rem; }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices */
+    .hero-content h1 { font-size: 2.5rem; letter-spacing: 1px;}
+    .hero-content .lead { font-size: 1rem; }
+    .section-heading { font-size: 1.8rem; }
+    .section-heading::after { width: 50px; height: 3px; }
+    .hero-section .btn-primary { padding: 10px 25px; font-size: 1rem; }
+    .contact-info, .social-links p { font-size: 1rem; }
+    .social-links .social-icon { font-size: 2.5rem; margin: 0 10px; }
+    section { padding-top: 80px; padding-bottom: 80px;}
+}
